@@ -1,0 +1,9 @@
+project: kiss-headers
+target: parse-fuzz
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_parser.py
+    libfuzzer: true
+    timeout: 12
