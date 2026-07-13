@@ -1,0 +1,12 @@
+# Mayhem target: kiss-headers HTTP/IMAP header parser (Atheris/libFuzzer harness).
+# The cmd binary is the compiled ELF launcher that drives mayhem/fuzz_parser.py; Atheris
+# instruments the kiss_headers library so the run records coverage (edges).
+project: kiss-headers
+target: parse-fuzz
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/parse-fuzz/testsuite
+
+cmds:
+  - cmd: /mayhem/parse-fuzz
+    libfuzzer: true
